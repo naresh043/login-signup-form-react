@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Login() {
+function Login({setIsHome}) {
   let [user, setUser] = useState({ email: "", password: "" });
   const [error, setError] = useState({});
 
@@ -19,6 +19,7 @@ function Login() {
     setError({});
     console.log("Login", user);
     setUser({ email: "", password: "" });
+    setIsHome((pre)=>!pre)
   };
 
   return (

@@ -1,23 +1,36 @@
+Global Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Root */
 #root {
   max-width: 1280px;
+  width: 100vw;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
 
+/* Logo */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Logo animation */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -33,22 +46,22 @@
   }
 }
 
-* {
-  margin: 0;
-  padding: 0;
-}
+/* Card */
 .card {
   padding: 2em;
 }
 
+/* Docs text */
 .read-the-docs {
   color: #888;
 }
 
+/* Error message */
 .error {
   color: red;
+  font-size: 12px;
+  margin-top: 4px;
 }
-
 
 
 /* Container */
@@ -58,13 +71,11 @@
   padding: 20px;
   border-radius: 8px;
   background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
 }
 
 /* Heading */
 .auth-container h2 {
-  text-align: center;
   margin-bottom: 20px;
   color: #333;
 }
@@ -73,6 +84,7 @@
 .auth-container form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 /* Inputs */
@@ -86,13 +98,6 @@
 
 .auth-container input:focus {
   border-color: #4f46e5;
-}
-
-/* Error message */
-.error {
-  color: red;
-  font-size: 12px;
-  margin-top: 4px;
 }
 
 /* Button */
@@ -109,4 +114,18 @@
 
 .auth-container button:hover {
   background-color: #4338ca;
+}
+
+
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 20px;
+}
+.nav-btn{
+  border-radius: 10px;
+  padding: 10px;
 }

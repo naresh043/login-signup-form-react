@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SignUp() {
+function SignUp({setIsLogin}) {
   let [user, setUser] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState({});
 
@@ -20,6 +20,7 @@ function SignUp() {
     setError({});
     console.log("Register", user);
     setUser({ name: "", email: "", password: "" });
+    setIsLogin((pre)=>!pre)
   };
 
   return (
