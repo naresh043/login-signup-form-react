@@ -13,7 +13,11 @@ function App() {
       <nav>
         <h3>LOGO</h3>
         {isHome ? (
-          <button className="nav-btn">Home</button>
+          <button className="nav-btn" onClick={()=>{
+            console.log("btn is clicked");
+            setIsHome(false);
+            setIsLogin(true);
+          }}>Logout</button>
         ) : (
           <button className="nav-btn" onClick={() => setIsLogin((pre) => !pre)}>
             {isLogin ? "Register" : "login"}

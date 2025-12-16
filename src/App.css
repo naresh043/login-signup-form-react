@@ -61,6 +61,7 @@ Global Reset
   color: red;
   font-size: 12px;
   margin-top: 4px;
+  text-align: start;
 }
 
 
@@ -128,4 +129,8 @@ nav {
 .nav-btn{
   border-radius: 10px;
   padding: 10px;
+}
+
+.input-error{
+  border-color: red !important;
 }
