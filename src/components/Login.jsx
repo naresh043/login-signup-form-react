@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function Login({ setIsHome }) {
   const [user, setUser] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({});
+
+  // refs for inputs
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  // auto focus email on component mount
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
 
   const validate = () => {
     let newErrors = {};
@@ -15,8 +24,17 @@ function Login({ setIsHome }) {
     e.preventDefault();
 
     const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
+
+    // focus based on validation error
+    if (validationErrors.email) {
       setErrors(validationErrors);
+      emailRef.current.focus();
+      return;
+    }
+
+    if (validationErrors.password) {
+      setErrors(validationErrors);
+      passwordRef.current.focus();
       return;
     }
 
@@ -24,6 +42,7 @@ function Login({ setIsHome }) {
 
     if (!storedUser) {
       alert("Please Register first!");
+      emailRef.current.focus();
       return;
     }
 
@@ -34,13 +53,17 @@ function Login({ setIsHome }) {
       parsedUser.password !== user.password
     ) {
       alert("Invalid credentials");
+      passwordRef.current.focus();
       return;
     }
 
-
     alert("Login successful!");
+
     setErrors({});
     setUser({ email: "", password: "" });
+
+    emailRef.current.focus();
+
     setIsHome((prev) => !prev);
   };
 
@@ -64,6 +87,7 @@ function Login({ setIsHome }) {
 
       <form onSubmit={handleSubmit}>
         <input
+          ref={emailRef}
           className={errors.email ? "input-error" : ""}
           type="email"
           placeholder="Enter email"
@@ -74,6 +98,7 @@ function Login({ setIsHome }) {
         {errors.email && <p className="error">{errors.email}</p>}
 
         <input
+          ref={passwordRef}
           className={errors.password ? "input-error" : ""}
           type="password"
           placeholder="Enter password"
