@@ -4,7 +4,7 @@ import Dummy from "../components/Dummy";
 
 test("Dummy component test",()=>{
     render(<Dummy/>)
-    const testele=screen.getByText(/Hello/i);
+    const testele=screen.getByText(/Hello/i);     
     expect(testele).toBeInTheDocument()
 })
 
