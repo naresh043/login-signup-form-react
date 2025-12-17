@@ -7,7 +7,7 @@ import Dummy from "./components/Dummy";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-  const [isHome, setIsHome] = useState(true);
+  const [isHome, setIsHome] = useState(false);
 
   return (
     <>
